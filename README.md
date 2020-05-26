@@ -1,7 +1,8 @@
 # Cellular Automata and Conway's "Game of Life"
 
 ---
-
+Author: Alexis Davalos
+Cohort: Lambda CS29
 **NOTE: This is a WEB based project.** 
 
 ---
