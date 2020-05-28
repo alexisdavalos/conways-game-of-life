@@ -1,0 +1,65 @@
+@import "./App.scss";
+#root {
+  margin: 0 auto;
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+  font-family: monospace;
+}
+
+canvas {
+  width: 75vw !important;
+  height: 100% !important;
+}
+/* Menu */
+.menu {
+  width: 25vw;
+  height: 100%;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  flex-direction: column;
+}
+.menu a {
+  margin: 2%;
+  width: 100%;
+  text-align: center;
+}
+/* Menu End */
+/* Control Panel */
+.button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 2.5%;
+  height: 50px;
+  width: 150px;
+  border: 0 none;
+  border-radius: 25px;
+  background: white;
+  font-weight: 700;
+
+  cursor: pointer;
+}
+.wrapper {
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  display: flex;
+  align-items: flex-end;
+}
+.control-panel {
+  position: absolute;
+  display: flex;
+  justify-content: flex-end;
+  width: 100%;
+}
+
+/* Control Panel End */
