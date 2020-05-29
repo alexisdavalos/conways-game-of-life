@@ -16,10 +16,11 @@ const Menu = ({ state, setState }) => {
         and observing how it evolves. It is Turing complete and can simulate a
         universal constructor or any other Turing machine.
       </p>
-      <p>Speed: {state.speed}%</p>
+      <p>Speed: {Math.floor((state.speed / 60) * 100)}%</p>
       <Range
         defaultValue={[state.speed]}
         min={1}
+        max={60}
         onChange={(e) => setState({ ...state, speed: e[0] })}
       />
       <h3>Game Rules:</h3>
