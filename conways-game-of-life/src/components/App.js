@@ -1,31 +1,64 @@
-import React from "react";
+import React, { useState } from "react";
 import logo from "./logo.svg";
 import "../assetts/styles/index.scss";
-
+import P5Wrapper from "react-p5-wrapper";
+import sketch from "../p5js/sketch-react.js";
+console.log(sketch);
 function App() {
+  const [state, setState] = useState({
+    play: false,
+    firstRun: true,
+    empty: true,
+    generations: 0,
+    generate: false,
+    clearGrid: false,
+    nextGeneration: false,
+  });
+
   return (
-    <div id="wrapper" class="wrapper">
-      <div id="menu" class="menu">
-        <a href="/">Menu Item 1</a>
-        <a href="/">Menu Item 1</a>
-        <a href="/">Menu Item 1</a>
-        <a href="/">Menu Item 1</a>
+    <div id="wrapper" className="wrapper">
+      <div id="menu" className="menu">
+        {state.play ? <p>Play Status: Playing</p> : <p>Play Status: Paused</p>}
+        <p>Generations:{state.generations}</p>
       </div>
-      <div class="control-panel">
-        <div class="button" onClick="nextGen()">
-          Next Generation
+      <div className="control-panel">
+        <div
+          className="button"
+          onClick={(e) =>
+            setState({
+              ...state,
+              nextGeneration: !state.nextGeneration,
+            })
+          }
+        >
+          Next Frame
         </div>
-        <div class="button" onClick="generate()">
+        <div
+          className="button"
+          onClick={(e) =>
+            setState({
+              ...state,
+              generate: !state.generate,
+            })
+          }
+        >
           Generate
         </div>
-        <div id="play" class="button" onClick="playStop()">
+        <div
+          id="play"
+          className="button"
+          onClick={(e) => setState({ ...state, play: !state.play })}
+        >
           Play/Stop
         </div>
-        <div class="button" onClick="clearGrid()">
+        <div
+          className="button"
+          onClick={() => setState({ ...state, clearGrid: !state.clearGrid })}
+        >
           Clear Grid
         </div>
-        <div class="button">Toggle Music</div>
       </div>
+      <P5Wrapper sketch={sketch} state={state} setState={setState} />
     </div>
   );
 }
