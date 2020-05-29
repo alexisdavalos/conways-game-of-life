@@ -17,8 +17,9 @@ body {
 canvas {
   width: 75vw !important;
   height: 100% !important;
+  border: solid 5px #ff00f9;
 }
-/* Menu */
+// Menu
 .menu {
   width: 25vw;
   height: 100%;
@@ -26,14 +27,23 @@ canvas {
   justify-content: flex-start;
   align-items: center;
   flex-direction: column;
+  background: black;
+  color: white;
+  overflow-y: overlay;
+  h3 {
+    border-bottom: solid 2px white;
+  }
+  a {
+    margin: 2%;
+    width: 100%;
+    text-align: center;
+  }
+  p {
+    margin: 5%;
+  }
 }
-.menu a {
-  margin: 2%;
-  width: 100%;
-  text-align: center;
-}
-/* Menu End */
-/* Control Panel */
+// Menu End
+// Control Panel
 .button {
   display: flex;
   justify-content: center;
@@ -42,10 +52,10 @@ canvas {
   height: 50px;
   width: 150px;
   border: 0 none;
-  border-radius: 25px;
-  background: white;
+  border: 2px solid black;
+  background: #bfbfbf;
+  box-shadow: 0 4px 24px #ff00f99e;
   font-weight: 700;
-
   cursor: pointer;
 }
 .wrapper {
@@ -62,4 +72,67 @@ canvas {
   width: 100%;
 }
 
-/* Control Panel End */
+// Control Panel End
+
+// Status Panel
+.status-panel {
+  position: absolute;
+  top: 0;
+  right: 0;
+  margin: 1%;
+  .status-item {
+    border: 2px solid black;
+    font-weight: 700;
+    background: #bfbfbf;
+    width: 300px;
+    text-align: center;
+    box-shadow: 0 4px 24px #ff00f99e;
+    margin: 5px;
+  }
+}
+//Status Panel End
+
+//Loader
+.loaderWrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  z-index: 100;
+  background: url(../images/logo.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  opacity: 100;
+  visibility: visible;
+  transition: visibility 0.3s linear, opacity 0.3s linear;
+  .backdrop {
+    width: 100%;
+    height: 100%;
+    background: #000000c9;
+    position: absolute;
+    z-index: -1;
+  }
+  img {
+    width: 350px;
+    padding-bottom: 1%;
+  }
+}
+.hidden {
+  opacity: 0;
+  visibility: hidden;
+}
+
+//slider overrides
+.rc-slider {
+  width: 75% !important;
+}
+.rc-slider-handle {
+  border: solid 2px #ff00f9 !important;
+}
+.rc-slider-handle-dragging {
+  box-shadow: 0 0 5px #ff00f9 !important;
+}

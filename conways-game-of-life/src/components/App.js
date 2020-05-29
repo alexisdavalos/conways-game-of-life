@@ -1,26 +1,23 @@
 import React, { useState } from "react";
-import logo from "./logo.svg";
 import "../assetts/styles/index.scss";
 import P5Wrapper from "react-p5-wrapper";
-import sketch from "../p5js/sketch-react.js";
-console.log(sketch);
+import sketch from "../sketches/sketch-react.js";
+import Loader from "./Loader.js";
+import Menu from "./Menu.js";
 function App() {
   const [state, setState] = useState({
     play: false,
     firstRun: true,
     empty: true,
-    generations: 0,
     generate: false,
     clearGrid: false,
     nextGeneration: false,
+    speed: 25,
   });
-
   return (
     <div id="wrapper" className="wrapper">
-      <div id="menu" className="menu">
-        {state.play ? <p>Play Status: Playing</p> : <p>Play Status: Paused</p>}
-        <p>Generations:{state.generations}</p>
-      </div>
+      <Loader />
+      <Menu state={state} setState={setState} />
       <div className="control-panel">
         <div
           className="button"
@@ -57,6 +54,12 @@ function App() {
         >
           Clear Grid
         </div>
+      </div>
+      <div className="status-panel">
+        <div className="status-item">
+          {state.play ? <p>Status: Playing</p> : <p>Status: Paused</p>}
+        </div>
+        <div id="generations" className="status-item"></div>
       </div>
       <P5Wrapper sketch={sketch} state={state} setState={setState} />
     </div>
