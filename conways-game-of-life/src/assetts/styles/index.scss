@@ -29,7 +29,7 @@ canvas {
   flex-direction: column;
   background: black;
   color: white;
-  overflow-y: overlay;
+  overflow-y: hidden;
   h3 {
     border-bottom: solid 2px white;
   }
